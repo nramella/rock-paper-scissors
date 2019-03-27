@@ -5,76 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rock Paper Scissors | Nick Ramella</title>
+
+    <link rel="stylesheet" href="styles/style.css">
+    <script type="text/javascript" src="/scripts/script.js"></script>
 </head>
 <body>
-    <script>
-        const options = ['Rock', 'Paper', 'Scissors'];
-        var playerScore = 0;
-        var computerScore = 0;
-    
-        function computerPlay() {
-            return options[Math.floor(Math.random()*options.length)];
-        }
-
-        function game() {
-            while (playerScore != 3 && computerScore != 3) {
-                const playerSelection = prompt("Please type Rock, Paper, or Scissors").toLowerCase();
-                const computerSelection = computerPlay().toLowerCase();
-                alert(playRound(playerSelection, computerSelection)+" The score is "+playerScore+" to "+computerScore+".");
-            }
-   
-            if (playerScore == 3) {
-                    alert("Congrats! You won the game "+playerScore+" to "+computerScore+".");
-                }
-            if (computerScore == 3) {
-                    alert("Sorry! You lost the game "+computerScore+" to "+playerScore+".");
-                }
-
-            const resetChoice = window.prompt("Do you want to play again? (yes/no)").toLowerCase();
-            if (resetChoice == "yes") {
-                reset();
-            }
-        }
-            
-        function playRound(playerSelection, computerSelection) {
-            if (playerSelection == computerSelection) {
-                    return "It's a tie!"
-                } else if (playerSelection == 'rock') {
-                    if (computerSelection == 'paper') {
-                        computerScore++;
-                        return "You lose! Paper covers rock."
-                    } else {
-                        playerScore++;
-                        return "You win! Rock crushes scissors."
-                    }
-                }  else if (playerSelection == 'paper') {
-                    if (computerSelection == 'scissors') {
-                        computerScore++;
-                        return "You lose! Scissors cut paper."
-                    } else {
-                        playerScore++;
-                        return "You win! Paper covers rock."
-                    }
-                } else if (playerSelection == 'scissors') {
-                    if (computerSelection == 'rock') {
-                        computerScore++;
-                        return "You lose! Rock crushes scissors."
-                    } else {
-                        playerScore++;
-                        return "You win! Scissors cut paper."
-                    }
-                } else {
-                    return "That is not a valid Response. Please try again."
-                }
-        }
-
-        function reset() {
-            playerScore = 0;
-            computerScore = 0;
-            game()
-        }
-
-        game();
-    </script>
+    <div class="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+    <div class="selections">
+            <ul>
+                <li>Player</li>
+                <li>Computer</li>
+            </ul>
+            <ul>
+                <li id="playerChoice"></li>
+                <li id="computerChoice"></li>
+            </ul>
+            <br>
+        </div>
+    <div class="results">
+        <h1 id='result'></h1>
+        <h2 id="score"></h2>
+    </div>
 </body>
 </html>

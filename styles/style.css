@@ -1,0 +1,11 @@
+body {
+    text-align: center;
+    vertical-align: auto;
+    padding-top: 100px;
+}
+
+ul li {
+    font-size: 20px;
+    width: 120px;
+    display: inline-block;
+}
